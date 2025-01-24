@@ -52,3 +52,20 @@ li {
 	gap: 10px;
 	align-items: center;
 }
+
+.notification {
+	font-size: 20px;
+	padding: 10px;
+	margin-bottom: 10px;
+	background: #272727;
+}
+
+.notification.success {
+	color: green;
+	border: 2px solid green;
+}
+
+.notification.error {
+	color: red;
+	border: 2px solid red;
+}
