@@ -52,9 +52,12 @@ const PhoneBook = () => {
 								}, 3000)
 							})
 							.catch((error) => {
-								setErrorMessage(
-									`Can't updated, Information of ${newName} has been deleted.`
-								)
+								const errorMessage =
+									error.response && error.response.data && error.response.data.error
+										? error.response.data.error
+										: 'An unexpected error occurred while updating the number.'
+
+								setErrorMessage(errorMessage)
 
 								setTimeout(() => {
 									setErrorMessage(null)
@@ -81,7 +84,12 @@ const PhoneBook = () => {
 					}, 3000)
 				})
 				.catch((error) => {
-					setErrorMessage(`Can't add, ${error}`)
+					const errorMessage =
+						error.response && error.response.data && error.response.data.error
+							? error.response.data.error
+							: 'An unexpected error occurred while adding the person.'
+
+					setErrorMessage(errorMessage)
 
 					setTimeout(() => {
 						setErrorMessage(null)

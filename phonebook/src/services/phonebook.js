@@ -27,21 +27,13 @@ const getAll = async (search) => {
 const addNewPerson = async (newPerson) => {
 	const request = axios.post(`${BASE_URL}`, newPerson)
 
-	return request
-		.then((response) => response.data)
-		.catch((error) => {
-			console.log(error)
-		})
+	return request.then((response) => response.data)
 }
 
 const updatePersonNumber = async (id, updatedNumber) => {
 	const request = axios.put(`${BASE_URL}/${id}`, updatedNumber)
 
-	return request
-		.then((response) => response.statusText)
-		.catch((error) => {
-			console.log(error)
-		})
+	return request.then((response) => response.statusText)
 }
 
 const deletePerson = async (id) => {
